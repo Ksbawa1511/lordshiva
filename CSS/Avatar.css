@@ -1,0 +1,29 @@
+h1 {
+    font-size: 40px;
+    color: #ee0a0a;
+    margin-left: 5%;
+    margin-right: 5%;
+
+}
+
+p {
+    font-size: 20px;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+body {
+    background-color: bisque;
+    padding-top: 100px;
+}
+
+header {
+    text-align: center;
+    font-size: 100px;
+    color: #ff0000;
+    background-color: rgb(219, 220, 220);
+    width: 100%;
+    left: 0;
+    top: 0;
+    position: fixed;
+}
