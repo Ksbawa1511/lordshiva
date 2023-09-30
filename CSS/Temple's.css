@@ -59,6 +59,8 @@ header nav ul li{
 
 }header nav ul li a{
     margin: 24px;
+    color: white;
+    text-decoration: none;
 }
 
 body{

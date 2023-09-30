@@ -1,3 +1,29 @@
-header{
-    font-size: 20px;
+header {
+  display: flex;
+  height: 100px;
+  flex-direction: column;
+}
+header .Home{
+ font-size: 35px;
+ padding: 0;
+}
+header nav{
+    font-size: 18px;
+    padding: 0;
+    text-align: justify;
+    cursor: pointer;
+}
+
+img {
+  width: 40%;
+  height: 20%;
+  display: flex;
+  float: left;
+  margin-left: 2%;
+  margin-right: 4%;
+  margin-top: 32px;
+  border: 2px solid white;
+}
+p {
+  font-size: 16px;
 }
