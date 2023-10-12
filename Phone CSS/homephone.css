@@ -1,0 +1,35 @@
+ header {
+     flex-direction: column;
+ height: 80px;
+
+ }
+
+ header .Home {
+     font-size: 30px;
+     padding-top: 10px;
+     display: inline-block;
+ }
+
+ nav{
+    flex-direction: column;
+    height: 90px;
+}
+.right{
+    font-size: 15px;
+    margin: 0;
+}
+
+ img {
+    width: 38%;
+    height: 20%;
+    display: inline;
+    margin-left: 31%;
+    margin-right: 12%;
+    float: none;
+ }
+ p{
+    font-size: 16px;
+ }
+ body{
+    padding-top:  100px;
+ }
