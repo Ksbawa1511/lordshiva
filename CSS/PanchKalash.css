@@ -45,14 +45,9 @@ nav {
 }
 
 .left {
-    font-family: 'Playfair Display', serif;
     font-size: 1.5rem;
-    font-weight: 700;
-    background: linear-gradient(135deg, #3498db 0%, #e74c3c 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    letter-spacing: 1px;
+    font-weight: bold;
+    color: var(--primary-color);
 }
 
 .right {
@@ -73,6 +68,7 @@ nav {
     height: 3px;
     background-color: var(--primary-color);
     margin: 3px 0;
+    transition: 0.3s;
 }
 
 /* Navigation Menu */
@@ -88,6 +84,7 @@ nav {
     font-weight: 500;
     padding: 0.5rem 1rem;
     border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
 .right ul li a:hover {
@@ -111,73 +108,146 @@ main {
     box-shadow: 0 5px 20px var(--shadow-color);
 }
 
-.hero-content {
-    position: relative;
-    display: inline-block;
-}
-
-.hero-content img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 5px solid var(--background-color);
-    box-shadow: 0 10px 30px var(--shadow-color);
-}
-
-.hero-text {
-    margin-top: 1.5rem;
-}
-
-.hero-text h1 {
+.hero h1 {
     font-size: 3rem;
     color: var(--primary-color);
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     font-weight: 700;
 }
 
-.hero-text p {
+.hero p {
     font-size: 1.2rem;
     color: var(--text-light);
     font-weight: 500;
 }
 
-/* Content Cards */
-.content {
+/* Kalash Grid */
+.kalash-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 2rem;
     margin-bottom: 3rem;
 }
 
-.card {
+.kalash-card {
     background-color: var(--card-background);
-    padding: 2rem;
     border-radius: 15px;
+    overflow: hidden;
     box-shadow: 0 5px 20px var(--shadow-color);
     border: 1px solid var(--border-color);
-    margin-bottom: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card h2 {
+.kalash-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px var(--shadow-color);
+}
+
+.card-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.kalash-card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+.card-content {
+    padding: 2rem;
+}
+
+.card-content h2 {
     color: var(--primary-color);
     margin-bottom: 1rem;
     font-size: 1.5rem;
     font-weight: 600;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.5rem;
 }
 
-.card p {
+.card-content p {
     color: var(--text-color);
     line-height: 1.7;
     font-size: 1rem;
+    margin-bottom: 1.5rem;
+    text-align: justify;
 }
 
-/* Temples Preview */
-.temples-preview {
+/* Kalash Details */
+.kalash-details {
+    background-color: var(--background-color);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 1.5rem;
+}
+
+.kalash-details h3 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.kalash-details ul {
+    list-style: none;
+    padding: 0;
+}
+
+.kalash-details ul li {
+    color: var(--text-color);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.kalash-details ul li::before {
+    content: '•';
+    color: var(--accent-color);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* Kalash Info */
+.kalash-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.kalash-info .label {
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+}
+
+.kalash-info .value {
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+/* Panch Kalash Significance */
+.panch-kalash-significance {
+    background-color: var(--card-background);
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px var(--shadow-color);
+    border: 1px solid var(--border-color);
     margin-bottom: 3rem;
 }
 
-.temples-preview h2 {
+.panch-kalash-significance h2 {
     text-align: center;
     color: var(--primary-color);
     margin-bottom: 2rem;
@@ -185,54 +255,104 @@ main {
     font-weight: 600;
 }
 
-.temple-cards {
+.panch-kalash-significance > p {
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.significance-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
 }
 
-.temple-card {
-    background-color: var(--card-background);
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px var(--shadow-color);
-    border: 1px solid var(--border-color);
+.significance-item {
     text-align: center;
-    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: var(--background-color);
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.temple-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
+.significance-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px var(--shadow-color);
 }
 
-.temple-card h3 {
+.significance-item h3 {
     color: var(--primary-color);
-    margin: 1rem;
+    margin-bottom: 1rem;
     font-size: 1.3rem;
     font-weight: 600;
 }
 
-.temple-card p {
+.significance-item p {
     color: var(--text-color);
-    margin: 0 1rem 1rem;
     line-height: 1.6;
+    font-size: 0.95rem;
 }
 
-.btn {
-    display: inline-block;
-    background-color: var(--accent-color);
-    color: white;
-    text-decoration: none;
-    padding: 0.8rem 1.5rem;
-    border-radius: 25px;
+/* Ritual Usage */
+.ritual-usage {
+    background-color: var(--card-background);
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px var(--shadow-color);
+    border: 1px solid var(--border-color);
+    margin-bottom: 3rem;
+}
+
+.ritual-usage h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-size: 2rem;
     font-weight: 600;
-    margin-top: 1rem;
 }
 
-.btn:hover {
-    background-color: #2980b9;
+.ritual-usage > p {
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.ritual-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.ritual-item {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: var(--background-color);
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ritual-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px var(--shadow-color);
+}
+
+.ritual-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.ritual-item p {
+    color: var(--text-color);
+    line-height: 1.6;
+    font-size: 0.95rem;
 }
 
 /* Footer */
@@ -252,12 +372,13 @@ footer p {
 
 /* Responsive Design */
 @media (max-width: 1200px) {
-    .content {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    .kalash-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
     
-    .temple-cards {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    .significance-grid,
+    .ritual-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     }
 }
 
@@ -270,16 +391,17 @@ footer p {
         gap: 1rem;
     }
     
-    .hero-text h1 {
+    .hero h1 {
         font-size: 2.5rem;
     }
     
-    .content {
+    .kalash-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
     
-    .temple-cards {
+    .significance-grid,
+    .ritual-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
@@ -321,21 +443,21 @@ footer p {
         padding: 2rem 1rem;
     }
     
-    .hero-text h1 {
+    .hero h1 {
         font-size: 2rem;
-    }
-    
-    .hero-content img {
-        width: 150px;
-        height: 150px;
     }
     
     main {
         padding: 1rem;
     }
     
-    .card {
+    .card-content {
         padding: 1.5rem;
+    }
+    
+    .panch-kalash-significance,
+    .ritual-usage {
+        padding: 2rem 1rem;
     }
 }
 
@@ -348,24 +470,20 @@ footer p {
         font-size: 1.2rem;
     }
     
-    .hero-text h1 {
+    .hero h1 {
         font-size: 1.8rem;
     }
     
-    .hero-text p {
+    .hero p {
         font-size: 1rem;
     }
     
-    .hero-content img {
-        width: 120px;
-        height: 120px;
-    }
-    
-    .temples-preview h2 {
+    .panch-kalash-significance h2,
+    .ritual-usage h2 {
         font-size: 1.5rem;
     }
     
-    .card h2 {
+    .card-content h2 {
         font-size: 1.3rem;
     }
 }
@@ -375,25 +493,21 @@ footer p {
         padding: 1.5rem 0.8rem;
     }
     
-    .hero-text h1 {
+    .hero h1 {
         font-size: 1.5rem;
     }
     
-    .hero-content img {
-        width: 100px;
-        height: 100px;
-    }
-    
-    .card {
+    .card-content {
         padding: 1rem;
     }
     
-    .temple-card h3 {
-        font-size: 1.1rem;
+    .panch-kalash-significance,
+    .ritual-usage {
+        padding: 1.5rem 0.8rem;
     }
     
-    .btn {
-        padding: 0.6rem 1.2rem;
-        font-size: 0.9rem;
+    .significance-item,
+    .ritual-item {
+        padding: 1rem;
     }
 }

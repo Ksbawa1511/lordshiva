@@ -1,288 +1,450 @@
-/* Import Google Fonts for professional typography */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
-
-/* Reset and base styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Mobile CSS Variables for Light Theme */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #34495e;
+    --accent-color: #3498db;
+    --text-color: #2c3e50;
+    --text-light: #7f8c8d;
+    --background-color: #ffffff;
+    --card-background: #f8f9fa;
+    --border-color: #e9ecef;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --hover-color: #ecf0f1;
 }
 
+/* Mobile Base Styles */
 body {
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #0f0f23 0%, #1a1a3a 50%, #0f0f23 100%);
-  color: #ffffff;
-  line-height: 1.6;
-  padding-top: 80px;
-  min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    padding-top: 0;
 }
 
-/* Professional Header */
+/* Mobile Header */
 header {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  background: linear-gradient(135deg, rgba(2, 42, 87, 0.95) 0%, rgba(5, 32, 63, 0.95) 100%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    background-color: var(--background-color);
+    box-shadow: 0 2px 10px var(--shadow-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
 }
 
 nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 5%;
-  height: 70px;
-  max-width: 1200px;
-  margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    max-width: 100%;
 }
 
 .left {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.8rem;
-  font-weight: 600;
-  background: linear-gradient(45deg, #ffffff, #a8e6cf);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--primary-color);
 }
 
 .right {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
-nav ul {
-  display: flex;
-  list-style: none;
-  gap: 2rem;
-  align-items: center;
+/* Mobile Hamburger Menu */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    margin-left: 1rem;
+    z-index: 1001;
 }
 
-nav ul li {
-  position: relative;
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--primary-color);
+    margin: 3px 0;
 }
 
-nav ul li a {
-  text-decoration: none;
-  color: #ffffff;
-  font-weight: 500;
-  font-size: 1rem;
-  padding: 0.75rem 1.5rem;
-  border-radius: 25px;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
+/* Mobile Navigation Menu */
+.right ul {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--background-color);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 5px 20px var(--shadow-color);
 }
 
-nav ul li a::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  transition: left 0.5s;
+.right ul.active {
+    display: flex;
 }
 
-nav ul li a:hover::before {
-  left: 100%;
+.right ul li {
+    margin: 1rem 0;
 }
 
-nav ul li a:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: #a8e6cf;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(168, 230, 207, 0.3);
+.right ul li a {
+    display: block;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1.2rem;
 }
 
-/* Main Content */
-section {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 5%;
+.right ul li a:hover {
+    background-color: var(--hover-color);
 }
 
-section:first-of-type {
-  margin-top: 2rem;
+/* Mobile Main Content */
+main {
+    max-width: 100%;
+    margin: 0;
+    padding: 1rem;
+    margin-top: 80px;
 }
 
-/* Professional Image Styling */
-img {
-  width: 40%;
-  max-width: 400px;
-  height: auto;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-  display: block;
-  float: right;
-  margin: 0 0 1.5rem 2rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Mobile Hero Section */
+.hero {
+    text-align: center;
+    margin-bottom: 2rem;
+    background: linear-gradient(135deg, var(--card-background) 0%, var(--background-color) 100%);
+    border-radius: 15px;
+    padding: 2rem 1rem;
+    box-shadow: 0 5px 20px var(--shadow-color);
 }
 
-img:hover {
-  transform: scale(1.02);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+.hero h1 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
 }
 
-/* Professional Typography */
-p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  margin-bottom: 1.5rem;
-  color: #e0e0e0;
-  text-align: justify;
-  padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 10px;
-  border-left: 4px solid #a8e6cf;
-  transition: all 0.3s ease;
+.hero p {
+    font-size: 1rem;
+    color: var(--text-light);
+    font-weight: 500;
 }
 
-p:hover {
-  background: rgba(255, 255, 255, 0.08);
-  transform: translateX(5px);
+/* Mobile About Content */
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
 }
 
-/* Professional Footer */
+.about-card {
+    background-color: var(--card-background);
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px var(--shadow-color);
+    border: 1px solid var(--border-color);
+}
+
+.about-card h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+}
+
+.about-card p {
+    color: var(--text-color);
+    line-height: 1.7;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    text-align: justify;
+}
+
+/* Mobile Divine Aspects */
+.divine-aspects,
+.cosmic-functions,
+.spiritual-qualities,
+.family-members,
+.sacred-places,
+.teachings {
+    background-color: var(--background-color);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    margin-top: 1.5rem;
+}
+
+.divine-aspects h3,
+.cosmic-functions h3,
+.spiritual-qualities h3,
+.family-members h3,
+.sacred-places h3,
+.teachings h3 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.divine-aspects ul,
+.cosmic-functions ul,
+.spiritual-qualities ul,
+.family-members ul,
+.sacred-places ul,
+.teachings ul {
+    list-style: none;
+    padding: 0;
+}
+
+.divine-aspects ul li,
+.cosmic-functions ul li,
+.spiritual-qualities ul li,
+.family-members ul li,
+.sacred-places ul li,
+.teachings ul li {
+    color: var(--text-color);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.divine-aspects ul li::before,
+.cosmic-functions ul li::before,
+.spiritual-qualities ul li::before,
+.family-members ul li::before,
+.sacred-places ul li::before,
+.teachings ul li::before {
+    content: '•';
+    color: var(--accent-color);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* Mobile Shiva Quotes */
+.shiva-quotes {
+    background-color: var(--card-background);
+    padding: 2rem 1rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px var(--shadow-color);
+    border: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+}
+
+.shiva-quotes h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.quotes-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.quote-card {
+    background-color: var(--background-color);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.quote-card blockquote {
+    color: var(--text-color);
+    font-size: 1rem;
+    font-style: italic;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.quote-card blockquote::before {
+    content: '"';
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    font-family: serif;
+}
+
+.quote-card cite {
+    color: var(--accent-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Mobile Footer */
 footer {
-  width: 100%;
-  background: linear-gradient(135deg, rgba(5, 32, 63, 0.95) 0%, rgba(2, 42, 87, 0.95) 100%);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 2rem 0;
-  margin-top: 4rem;
-  text-align: center;
-  font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
-  font-weight: 500;
-  color: #a8e6cf;
-  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+    background-color: var(--card-background);
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+footer p {
+    color: var(--text-color);
+    margin: 0.5rem 0;
+    font-weight: 500;
+    font-size: 0.95rem;
 }
 
 /* Mobile Responsive Design */
-@media (max-width: 768px) {
-  nav {
-    padding: 0 3%;
-  }
-  
-  .left {
-    font-size: 1.5rem;
-  }
-  
-  nav ul {
-    gap: 1rem;
-  }
-  
-  nav ul li a {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-  }
-  
-  section {
-    padding: 1rem 3%;
-  }
-  
-  p {
-    font-size: 1rem;
-    padding: 1rem;
-  }
-  
-  footer {
-    font-size: 1.2rem;
-    padding: 1.5rem 0;
-  }
+@media (min-width: 769px) {
+    .hamburger {
+        display: none;
+    }
+    
+    .right ul {
+        display: flex;
+        position: static;
+        width: auto;
+        height: auto;
+        background-color: transparent;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        box-shadow: none;
+        z-index: auto;
+    }
+    
+    .right ul li {
+        margin: 0;
+    }
+    
+    .right ul li a {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+    }
+    
+    main {
+        margin-top: 0;
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 2rem;
+    }
+    
+    .hero {
+        padding: 3rem 2rem;
+        margin-bottom: 3rem;
+    }
+    
+    .hero h1 {
+        font-size: 3rem;
+    }
+    
+    .hero p {
+        font-size: 1.2rem;
+    }
+    
+    .about-content {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+    }
+    
+    .about-card {
+        padding: 2rem;
+    }
+    
+    .about-card h2 {
+        font-size: 1.5rem;
+    }
+    
+    .shiva-quotes {
+        padding: 3rem 2rem;
+        margin-bottom: 3rem;
+    }
+    
+    .shiva-quotes h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .quotes-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+    
+    .quote-card {
+        padding: 2rem;
+    }
+    
+    .quote-card blockquote {
+        font-size: 1.1rem;
+    }
+    
+    .quote-card cite {
+        font-size: 1rem;
+    }
+    
+    footer {
+        padding: 2rem;
+        margin-top: 3rem;
+    }
+    
+    footer p {
+        font-size: 1rem;
+    }
 }
 
 @media (max-width: 600px) {
-  header {
-    flex-direction: column;
-    font-size: 1.2rem;
-    padding: 10px 0;
-  }
-  .right {
-    margin-left: 0;
-    margin-top: 10px;
-  }
-  .left {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-  }
-  nav {
-    flex-direction: column;
-    height: auto;
-    padding: 10px 0;
-  }
-  nav ul {
-    flex-direction: column;
-    gap: 10px;
-  }
-  nav ul li {
-    margin: 10px 0;
-  }
-  body {
-    padding-top: 140px;
-  }
-  p {
-    font-size: 16px;
-    margin-left: 2%;
-    margin-right: 2%;
-  }
-  img {
-    width: 80%;
-    height: auto;
-    float: none;
-    margin: 10px auto;
-    display: block;
-  }
-  footer {
-    font-size: 20px;
-    flex-direction: column;
-    padding: 10px 0;
-  }
+    .left {
+        font-size: 1.1rem;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero p {
+        font-size: 0.95rem;
+    }
+    
+    .shiva-quotes h2 {
+        font-size: 1.3rem;
+    }
+    
+    .about-card h2 {
+        font-size: 1.2rem;
+    }
 }
 
 @media (max-width: 480px) {
-  nav {
-    flex-direction: column;
-    height: auto;
-    padding: 1rem 3%;
-  }
-  
-  .left {
-    margin-bottom: 1rem;
-    font-size: 1.3rem;
-  }
-  
-  nav ul {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  
-  body {
-    padding-top: 120px;
-  }
-  
-  section {
-    padding: 1rem 3%;
-  }
-  
-  p {
-    font-size: 0.95rem;
-    padding: 1rem;
-    margin-bottom: 1rem;
-  }
-  
-  img {
-    width: 90%;
-    max-width: 300px;
-  }
-  
-  footer {
-    font-size: 1.1rem;
-    padding: 1.5rem 0;
-  }
+    .hero {
+        padding: 1.5rem 0.8rem;
+    }
+    
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+    
+    .about-card {
+        padding: 1rem;
+    }
+    
+    .shiva-quotes {
+        padding: 1.5rem 0.8rem;
+    }
+    
+    .quote-card {
+        padding: 1.5rem;
+    }
 } 
